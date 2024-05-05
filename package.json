@@ -7,8 +7,8 @@
     "url": "https://github.com/Dar3cz3Q/WeatherApp-Backend"
   },
   "scripts": {
-    "start": "node ./src/main.js",
-    "dev": "nodemon --env-file=.env.development.local ./src/main.js"
+    "start": "node ./src/index.js",
+    "dev": "nodemon --env-file=.env.development.local ./src/index.js"
   },
   "keywords": [],
   "author": "Dar3cz3Q",

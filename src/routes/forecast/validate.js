@@ -1,9 +1,16 @@
-function validateData(req, res, next) {
-    const minLatitude = -90;
-    const maxLatitude = 90;
-    const minLongitude = -180;
-    const maxLongitude = 180;
+const minLatitude = -90;
+const maxLatitude = 90;
+const minLongitude = -180;
+const maxLongitude = 180;
 
+function validateData(req, res, next) {
+    // Check if parameters are provided
+    if (!req.query.latitude)
+        return res.status(400).json({ error: "No latitude provided" });
+    if (!req.query.longitude)
+        return res.status(400).json({ error: "No longitude provided" });
+
+    // Check if parameters are numbers
     let latitude = Number(req.query.latitude);
     let longitude = Number(req.query.longitude);
 
@@ -11,6 +18,7 @@ function validateData(req, res, next) {
         return res.status(400).json({ error: "Latitude and longitude must be a number" });
     }
 
+    // Check if parameters are in between min, max values
     let errors = {};
 
     if (latitude > maxLatitude || latitude < minLatitude) {
