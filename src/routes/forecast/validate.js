@@ -19,18 +19,12 @@ function validateData(req, res, next) {
     }
 
     // Check if parameters are in between min, max values
-    let errors = {};
-
     if (latitude > maxLatitude || latitude < minLatitude) {
-        errors.latitude = "Latitude must be between " + minLatitude + " and " + maxLatitude + "";
+        return res.status(400).json({ error: "Latitude must be between " + minLatitude + " and " + maxLatitude + "" });
     }
 
     if (longitude > maxLongitude || longitude < minLongitude) {
-        errors.longitude = "Longitude must be between " + minLongitude + " and " + maxLongitude + "";
-    }
-
-    if (Object.keys(errors).length != 0) {
-        return res.status(400).send(errors);
+        return res.status(400).json({ error: "Longitude must be between " + minLongitude + " and " + maxLongitude + "" });
     }
 
     next();
