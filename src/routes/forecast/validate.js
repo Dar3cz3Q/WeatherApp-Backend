@@ -30,4 +30,4 @@ function validateData(req, res, next) {
     next();
 }
 
-module.exports = validateData;
+export default validateData;

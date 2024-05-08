@@ -1,10 +1,9 @@
-const express = require("express");
+import express from 'express'
+import axios from 'axios'
+import validateData from './validate.js'
+
 const router = express.Router();
-
-const axios = require("axios");
 axios.defaults.baseURL = 'https://api.open-meteo.com/v1';
-
-const validateData = require("./validate");
 
 router.get('/', validateData, async (req, res) => {
     // Download data from external API
@@ -63,4 +62,4 @@ function calculateEnergyProduction(timeInSeconds) {
     return photovoltaicInstallationPower * timeInHours * panelEfficiency;
 }
 
-module.exports = router;
+export default router;

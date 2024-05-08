@@ -1,5 +1,6 @@
 {
   "name": "weather-app-backend",
+  "type": "module",
   "version": "1.0.0",
   "description": "",
   "repository": {
@@ -7,8 +8,9 @@
     "url": "https://github.com/Dar3cz3Q/WeatherApp-Backend"
   },
   "scripts": {
-    "start": "node ./src/index.js",
-    "dev": "nodemon --env-file=.env.development.local ./src/index.js"
+    "start": "node --env-file=.env.production.local ./src/server.js",
+    "dev": "nodemon --env-file=.env.development.local ./src/server.js",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js ./test"
   },
   "keywords": [],
   "author": "Dar3cz3Q",
@@ -17,5 +19,9 @@
     "axios": "^1.6.8",
     "cors": "^2.8.5",
     "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^7.0.0"
   }
 }
