@@ -6,6 +6,7 @@ const app = express();
 
 app.use(
     cors({
+        origin: "" + process.env.APP_PROTOCOL + "://" + process.env.APP_IP + ":" + process.env.APP_PORT + "",
         optionsSuccessStatus: 200,
         methods: ["GET"],
         credentials: true,
