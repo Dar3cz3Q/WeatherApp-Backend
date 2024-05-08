@@ -8,7 +8,7 @@
     "url": "https://github.com/Dar3cz3Q/WeatherApp-Backend"
   },
   "scripts": {
-    "start": "node --env-file=.env.production.local ./src/server.js",
+    "start": "node ./src/server.js",
     "dev": "nodemon --env-file=.env.development.local ./src/server.js",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js ./test"
   },
